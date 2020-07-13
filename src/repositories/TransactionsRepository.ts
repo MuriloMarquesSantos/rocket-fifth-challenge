@@ -1,10 +1,5 @@
 import Transaction from '../models/Transaction';
-
-interface Balance {
-  income: number;
-  outcome: number;
-  total: number;
-}
+import { Balance } from '../models/Balance';
 
 interface TransactionsResponse {
   transactions: Transaction[];
@@ -25,7 +20,7 @@ class TransactionsRepository {
     this.transactions = [];
   }
 
-  public all() {
+  public all(): TransactionsResponse {
     return {
       transactions: this.transactions,
       balance: this.balance,
